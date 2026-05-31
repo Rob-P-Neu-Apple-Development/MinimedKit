@@ -596,9 +596,10 @@ extension MinimedPumpManager {
         // Send notifications for low reservoir if necessary
         if let previousVolume = lastValue?.unitVolume {
             guard newValue.unitVolume > 0 else {
-                pumpDelegate.notify { (delegate) in
-                    delegate?.issueAlert(self.pumpReservoirEmptyAlert)
-                }
+//                Don't issue the empty reservior alert since we let the pump run until it gets a delivery failure which causes this notification to be sent repeatedly
+//                pumpDelegate.notify { (delegate) in
+//                    delegate?.issueAlert(self.pumpReservoirEmptyAlert)
+//                }
                 return
             }
 
